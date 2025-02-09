@@ -1,5 +1,6 @@
-package com.examsimulator.domain
+package com.examsimulator.model.entities
 
+import com.examsimulator.model.enums.Role
 import jakarta.persistence.*
 import java.util.*
 
@@ -31,6 +32,3 @@ data class User(
     val verificationToken: String? = UUID.randomUUID().toString()
 )
 
-enum class Role {
-    USER, ADMIN
-}
