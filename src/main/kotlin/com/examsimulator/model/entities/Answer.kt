@@ -28,14 +28,6 @@ data class Answer(
     @Column(nullable = false)
     val isCorrect: Boolean,
 
-    @CreationTimestamp
-    @Column(updatable = false)
-    val createdAt: LocalDateTime = LocalDateTime.now(),
-
-    @UpdateTimestamp
-    @Column
-    val updatedAt: LocalDateTime? = null,
-
     @Column(nullable = false)
     val order: Int,
 
@@ -47,5 +39,23 @@ data class Answer(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
-    val createdBy: User? = null
+    val createdBy: User? = null,
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    val createdAt: LocalDateTime = LocalDateTime.now(),
+
+    @UpdateTimestamp
+    @Column
+    val updatedAt: LocalDateTime? = null,
+
+    @Column(length = 1000)
+    val feedback: String? = null, //Feedback adicional sobre a resposta
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "attempt_history_id")
+    val attemptHistory: AttemptHistory? = null, // Vinculação com o histórico de tentativas, se necessário
+
+    @Column(length = 1000)
+    val justification: String? = null // Justificativa opcional sobre a escolha da resposta
 )
