@@ -34,5 +34,18 @@ data class Answer(
 
     @UpdateTimestamp
     @Column
-    val updatedAt: LocalDateTime? = null
+    val updatedAt: LocalDateTime? = null,
+
+    @Column(nullable = false)
+    val order: Int,
+
+    @Column(length=1000)
+    val explanation: String? = null,
+
+    @Column(nullable = false)
+    val active: Boolean = true,
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    val createdBy: User? = null
 )
