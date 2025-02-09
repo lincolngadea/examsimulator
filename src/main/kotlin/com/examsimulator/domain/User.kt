@@ -1,7 +1,7 @@
 package com.examsimulator.domain
 
 import jakarta.persistence.*
-import java.util.UUID
+import java.util.*
 
 
 @Entity
@@ -31,6 +31,6 @@ data class User(
     val verificationToken: String? = UUID.randomUUID().toString()
 )
 
-enum class Role{
+enum class Role {
     USER, ADMIN
 }
