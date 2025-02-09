@@ -1,14 +1,6 @@
 package com.examsimulator.model.entities
 
-import jakarta.persistence.Id
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.ManyToOne
-import jakarta.persistence.FetchType
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.Column
-import jakarta.persistence.OneToMany
+import jakarta.persistence.*
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 import java.time.LocalDateTime
@@ -33,7 +25,7 @@ data class Attempt(
     @Column(nullable = false)
     val totalCorrect: Int = 0,
 
-    @Column(nullable =false)
+    @Column(nullable = false)
     val totalIncorrect: Int = 0,
 
     @Column(nullable = false, updatable = false)
@@ -56,7 +48,7 @@ data class Attempt(
     @Column(length = 500)
     val badges: String? = null,
 
-    @Column(length =1000)
+    @Column(length = 1000)
     val feedback: String? = null,
 
     @Column(nullable = false)
